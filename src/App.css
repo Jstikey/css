@@ -1,0 +1,89 @@
+html,
+body {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(375deg, #1cc7d0, #2ede98);
+}
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  height: 400px;
+  width: 320px;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: all 1s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.back-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background: white;
+  transform: rotateY(180deg);
+  backdrop-filter: blur(25px);
+}
+.wrapper:hover .back-face {
+  transform: rotateY(0deg);
+}
+
+.front-face {
+  transform: rotateY(0deg);
+}
+
+.wrapper:hover .front-face {
+  transform: rotateY(-180deg);
+}
+
+.back-face img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.info {
+  text-align: center;
+}
+
+.sun {
+  height: 250px;
+  width: 250px;
+  background: linear-gradient(90deg, rgb(100, 100, 219), rgb(235, 230, 231));
+  position: absolute;
+  border-radius: 50%;
+  top: 2rem;
+  left: 2rem;
+}
+
+.sun::before {
+  top: 4rem;
+  content: "";
+  height: 250px;
+  width: 250px;
+  background: linear-gradient(90deg, rgb(100, 100, 219), rgb(235, 230, 231));
+  position: absolute;
+  border-radius: 50%;
+
+  left: 20rem;
+}
