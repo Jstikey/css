@@ -1,10 +1,12 @@
 html,
 body {
   height: 100%;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(375deg, #1cc7d0, #2ede98);
+  background-image: url("mountain.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
+
 * {
   font-family: sans-serif;
   box-sizing: border-box;
@@ -12,78 +14,491 @@ body {
   padding: 0;
 }
 
-.wrapper {
-  height: 400px;
-  width: 320px;
-  position: relative;
-  transform-style: preserve-3d;
-  perspective: 1000px;
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border: 1px solid black;
+  width: 100%;
+  height: 100vh;
 }
 
-.card {
+.children {
+  margin-left: 300px;
+  border: 1px solid black;
   height: 100%;
   width: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-  transition: all 1s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-.card img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 10px;
+.login-wrapper {
+  width: 400px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 9px;
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.back-face {
+form {
   display: flex;
   flex-direction: column;
+}
+
+form h2 {
+  font-size: 2rem;
+  color: white;
+  margin: 15px 0;
+}
+
+.input-field {
+  border-bottom: 2px solid #ccc;
+  position: relative;
+  margin: 15px 0;
+}
+
+.input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: #fff;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+  transform: translateY(-120%);
+  font-size: 0.8rem;
+  top: 10px;
+}
+
+.password-option {
+  display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  background: white;
-  transform: rotateY(180deg);
-  backdrop-filter: blur(25px);
-}
-.wrapper:hover .back-face {
-  transform: rotateY(0deg);
+  justify-content: space-between;
+  color: #fff;
 }
 
-.front-face {
-  transform: rotateY(0deg);
+.password-option label {
+  display: flex;
+  align-items: center;
 }
 
-.wrapper:hover .front-face {
-  transform: rotateY(-180deg);
+.password-option label p {
+  margin-left: 0.5rem;
 }
 
-.back-face img {
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
+.login-wrapper a {
+  color: #ececec;
+  text-decoration: none;
 }
 
-.info {
+.login-wrapper a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 4px;
+  border: 2px slid transparent;
+  transition: 0.3s ease;
+  margin-top: 2rem;
+}
+
+button:hover {
+  background: rgba(225, 225, 225, 0.15);
+  color: #fff;
+  border-color: #fff;
+}
+
+.account-options {
   text-align: center;
+  margin-top: 30px;
+  color: #fff;
 }
 
-.sun {
-  height: 250px;
-  width: 250px;
-  background: linear-gradient(90deg, rgb(100, 100, 219), rgb(235, 230, 231));
+.side-bar .title {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.form-wrapper {
+  height: 420px;
+  width: 340px;
+  border: 1px solid rgb(226, 195, 195);
+  backdrop-filter: blur(1px);
+  /* -webkit-backdrop-filter: blur(8px); */
+  background: rgba(127, 127, 241, 0.3);
+  box-shadow: -3px -3px 7px rgba(127, 127, 241, 1),
+    3px 3px 7px rgba(102, 102, 169, 1),
+    inset -3px -3px 7px rgba(127, 127, 241, 1),
+    inset 3px 3px 7px rgba(102, 102, 169, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.my-form {
+  height: 90%;
+  width: 90%;
+  box-shadow: -3px -3px 7px rgba(127, 127, 241, 1),
+    3px 3px 7px rgba(102, 102, 169, 1);
+  padding: 1rem;
+}
+
+.input-value {
+  position: relative;
+  border-bottom: 1px solid white;
+  margin-top: 1rem;
+}
+
+.input-value label {
   position: absolute;
-  border-radius: 50%;
-  top: 2rem;
-  left: 2rem;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: block;
+  cursor: pointer;
+  color: rgb(247, 242, 242);
 }
 
-.sun::before {
-  top: 4rem;
+.input-value input:focus + label,
+.input-value input:valid + label {
+  transform: translateY(-120%);
+  font-size: 0.8rem;
+  top: 10px;
+}
+.input-value input {
+  width: 100%;
+  height: 30px;
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+}
+
+.button-label {
+  margin-top: 1rem;
+  width: 100%;
+  height: 35px;
+  box-shadow: 3px 3px 5px rgb(54, 54, 133), -3px -3px 5px rgb(54, 54, 133);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.button-label .submit {
+  height: 90%;
+  width: 99%;
+  box-shadow: inset 3px 3px 5px 0px rgb(54, 54, 133),
+    inset -3px -3px 3px 0px rgb(54, 54, 133);
+}
+
+.rememberMe {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rememberMe * {
+  color: white;
+  text-decoration: none;
+}
+
+.remember {
+  display: flex;
+  gap: 0.5rem;
+}
+.submit:hover {
+  border: 1px solid white;
+}
+.register {
+  margin-top: 2rem;
+}
+
+.register * {
+  color: white;
+}
+/* 
+==========================================================
+SIDEBAR 
+=========================================================
+*/
+
+.side-bar {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100vh;
+  width: 300px;
+  background: #acf0f3;
+  padding: 12px;
+  box-shadow: -3px -3px 7px #fff, 3px 3px 5px #b5abab, inset -3px -3px 7px #fff,
+    inset 3px 3px 5px #b5abab;
+  transition: all 0.3s ease;
+}
+
+.side-bar .title .logo {
+  font-size: 27px;
+  font-weight: 600;
+  color: #31344b;
+}
+.side-bar ul {
+  margin-top: 35px;
+  list-style: none;
+}
+
+.side-bar ul .a {
+  position: relative;
+  color: #31344b;
+  display: block;
+  text-decoration: none;
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 10px 25px;
+  /* background: pink; */
+  border-radius: 6px;
+  box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
+  box-shadow: -3px -3px 7px #fff, 3px 3px 5px #b5abab;
+}
+
+.side-bar ul {
+  margin-right: 10px;
+}
+
+.media-icon {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.media-icon a {
+  margin: 0 4px;
+  font-size: 17px;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  box-shadow: -3px -3px 7px #fff, 3px 3px 5px #b5abab;
+  position: relative;
+}
+
+.side-bar ul a:hover::before,
+.media-icon a:hover::before {
+  position: absolute;
   content: "";
-  height: 250px;
-  width: 250px;
-  background: linear-gradient(90deg, rgb(100, 100, 219), rgb(235, 230, 231));
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  box-shadow: inset -3px -3px 7px #fff, inset 3px 3px 5px #b5abab;
+}
+
+.media-icon a:hover::before {
+  border-radius: 50%;
+}
+
+.side-bar ul .a:hover::before {
+  columns: #3498db;
+}
+
+.media-icon a:nth-child(4) {
+  color: red;
+}
+
+/* label {
+  font-size: 17px;
+  color: #31344b;
+  box-shadow: -3px -3px 7px #fff, 3px 3px 5px #b5abab;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  transition: 0.3s ease;
+}
+
+label:hover {
+  box-shadow: inset -3px -3px 7px #fff, inset 3px 3px 5px #b5abab;
+  cursor: pointer;
+} */
+
+.bars {
   position: absolute;
+  left: 15px;
+  top: 15px;
+}
+
+#check {
+  display: none;
+}
+
+#check:checked ~ .side-bar {
+  left: 0;
+}
+
+/* ===================================================
+LOADER 
+==================================================== */
+
+.loader {
+  width: 300px;
+  height: 300px;
+  position: relative;
   border-radius: 50%;
 
-  left: 20rem;
+  box-shadow: -10px -10px 15px rgba(225, 225, 225, 1),
+    10px 10px 28px rgb(8, 8, 8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  box-shadow: inset -10px -10px 15px rgba(225, 225, 225, 1),
+    inset 10px 10px 28px rgb(8, 8, 8);
+}
+
+.span {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.span::before {
+  content: "";
+  height: 30px;
+  width: 30px;
+  background: blue;
+  border-radius: 50%;
+  position: absolute;
+}
+
+/* ========================================================
+BUTTON CONTAINER
+========================================================== */
+
+.buttonContainer {
+  position: relative;
+  width: 30rem;
+  height: 150px;
+
+  box-shadow: 3px 3px 7px #fff, -3px -3px 5px #cfcfcf;
+  border-radius: 5px;
+}
+
+.buttonContainer::before {
+  content: "";
+  position: absolute;
+  width: 30rem;
+  height: 150px;
+  background: rgba(205, 205, 205, 0.3);
+  box-shadow: inset 3px 3px 7px #fff, inset -3px -3px 5px #cfcfcf;
+  border-radius: 5px;
+  backdrop-filter: blur(1px);
+}
+
+.list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.listItem {
+  list-style: none;
+  background-color: pink;
+  color: #4d3252;
+  font-weight: bolder;
+  padding: 1rem;
+  display: block;
+  box-shadow: -3px -3px 7px #fff, 3px 3px 5px #cfcfcf;
+  z-index: 1000;
+}
+
+.active {
+  box-shadow: inset -3px -3px 7px #fff, inset 3px 3px 5px #cfcfcf;
+}
+
+/* ==================================================
+TOGGLE BUTTON
+==================================================== */
+.checkForm {
+  position: relative;
+  margin: 3rem auto;
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -3px -3px 7px grey, 3px 3px 5px grey, -3px -3px 7px grey,
+    3px 3px 5px grey;
+  border-radius: 4px;
+  height: 10rem;
+  background-color: pink;
+  backdrop-filter: blur(49px);
+  -webkit-backdrop-filter: blur(49px);
+}
+
+.checkInput {
+  content: "";
+  position: relative;
+  width: 150px;
+  box-shadow: 3px 3px 5px black, -3px -3px 7px white, inset 3px 3px 5px black,
+    inset -3px -3px 7px white;
+  height: 35px;
+  backdrop-filter: blur(3px);
+  border-radius: 49px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.checkInput::before {
+  content: "";
+  height: 35px;
+  width: 35px;
+  background: pink;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transition: all 0.5s linear;
+  box-shadow: 3px 3px 5px 0px black, -3px -3px 7px 0px white;
+}
+
+input:checked::before {
+  left: 120px;
 }
